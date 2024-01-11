@@ -14,7 +14,7 @@ from utils import ADAMLearningRateTracker
 
 INPUT_SHAPE = (192, 192)
 INPUT_CHANNELS = 4
-LEARNING_RATE = 1e-4
+LEARNING_RATE = 1e-5
 MIN_LEARNING_RATE = 1e-8
 DECAY_FACTOR = 0.7
 PATIENCE = 10
@@ -60,7 +60,7 @@ def train():
         steps_per_epoch=np.ceil(len(train_files) / BATCH_SIZE),
         epochs=MAX_NUM_EPOCHS,
         verbose=1,
-        callbacks=[model_checkpoint, ADAMLearningRateTracker(MIN_LEARNING_RATE), lr_reducer, csv_logger],
+        callbacks=[model_checkpoint, lr_reducer, csv_logger],
         validation_data=testing_generator,
         validation_steps=BATCH_SIZE
     )
