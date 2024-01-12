@@ -23,3 +23,11 @@ def recall(y_true, y_pred):
     possible_positives = K.sum(K.round(K.clip(y_true, 0, 1)))
     recall = true_positives / (possible_positives + K.epsilon())
     return recall
+
+
+def overall_accuracy(y_true, y_pred):
+    true_positives = K.sum(K.round(K.clip(y_true * y_pred, 0, 1)))
+    false_positives = K.sum(K.round(K.clip((y_true * -1 + 1) * y_pred, 0, 1)))
+    true_negatives = K.sum(K.round(K.clip((y_true * -1 + 1) * (y_pred * -1 + 1), 0, 1)))
+    false_negatives = K.sum(K.round(K.clip(y_true * (y_pred * -1 + 1), 0, 1)))
+    return (true_positives + true_negatives) / (true_positives + true_negatives + false_positives + false_negatives)
