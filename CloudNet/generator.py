@@ -13,15 +13,15 @@ def get_batch(dataset_path: str, file_list: List[str], size: Tuple[int, int], ba
     data = []
     
     for file in tqdm(file_list, desc="Loading Images", unit="file"):
-        image = imread(os.path.join(dataset_path, f'Combined/Image/{file}.tif'))
-        mask = imread(os.path.join(dataset_path, f"Combined/Mask/{file}.tif"))
+        image = imread(os.path.join(dataset_path, f'Combined/ImagesSmall/{file}.tif'))
+        mask = imread(os.path.join(dataset_path, f"Combined/MasksSmall/{file}.tif"))
         
-        image = resize(image, size, preserve_range=True, mode='symmetric')
-        mask = resize(mask, size, preserve_range=True, mode='symmetric')
+        # image = resize(image, size, preserve_range=True, mode='symmetric')
+        # mask = resize(mask, size, preserve_range=True, mode='symmetric')
         
         image = (image / 255).astype(np.float32)
         mask = (mask / 255).astype(np.float32)
-    
+        mask = np.where(mask < 0.5, np.float32(0), np.float32(1))
         data.append([image, mask])
 
     while True:
