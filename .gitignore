@@ -3,6 +3,17 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Do not upload all the model weights
+*.hdf5
+*.log
+
+# Do not upload all the training images
+
+train/input
+train/gt
+validation/input
+validation/gt
+
 # C extensions
 *.so
 
