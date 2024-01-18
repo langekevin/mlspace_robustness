@@ -10,7 +10,6 @@ from tensorflow.python.keras.callbacks import ModelCheckpoint, ReduceLROnPlateau
 from metrics import jacc_coef, precision, recall, overall_accuracy
 from model import create_model
 from generator import get_batch
-from utils import ADAMLearningRateTracker
 
 
 INPUT_SHAPE = (192, 192)
@@ -29,8 +28,8 @@ SHUFFLE_DATA = True
 MEM_LIMIT_GPU = int(7.5 * 1024)
 
 timestamp = datetime.strftime(datetime.now(), format='%y-%m-%d-%H-%M')
-DATASET_PATH = '/home/kevin/Downloads/CloudNetDataset'
-TRAINING_PATCHES = '/home/kevin/Downloads/95Cloud/95-cloud_training/training_patches_95-cloud_nonempty.csv' # 'training_patches_cleaned.csv'
+DATASET_PATH = '../../Downloads/CloudNetDataset'
+TRAINING_PATCHES = '../../Downloads/95Cloud/95-cloud_training/training_patches_95-cloud_nonempty.csv'
 WEIGHTS_PATH = f'weights-{timestamp}.hdf5'
 
 files: List[str] = []
@@ -82,9 +81,6 @@ def get_files():
 
     if SHUFFLE_DATA:
         random.shuffle(files)
-
-    # For the first try, don't load all data
-    # files = files[:500]
 
     # Splitting in training and test data
     split_idx = int(len(files) * (1 - TEST_RATIO))

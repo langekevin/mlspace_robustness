@@ -16,9 +16,6 @@ def get_batch(dataset_path: str, file_list: List[str], size: Tuple[int, int], ba
         image = imread(os.path.join(dataset_path, f'Combined/ImagesSmall/{file}.tif'))
         mask = imread(os.path.join(dataset_path, f"Combined/MasksSmall/{file}.tif"))
         
-        # image = resize(image, size, preserve_range=True, mode='symmetric')
-        # mask = resize(mask, size, preserve_range=True, mode='symmetric')
-        
         image = (image / 255).astype(np.float32)
         mask = (mask / 255).astype(np.float32)
         mask = np.where(mask < 0.5, np.float32(0), np.float32(1))
@@ -27,7 +24,7 @@ def get_batch(dataset_path: str, file_list: List[str], size: Tuple[int, int], ba
     while True:
         file_batch = data[batch_size * counter:batch_size * (counter + 1)]
         yield (np.array([f[0] for f in file_batch]), np.array([f[1] for f in file_batch]))
-
+        counter += 1
         if counter == n_batches:
             random.shuffle(data)
             counter = 0
