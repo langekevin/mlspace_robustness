@@ -1,3 +1,7 @@
+"""This module defines different error metrics
+used for training and validating the neural network
+"""
+
 from tensorflow.python.keras import backend as K
 
 
@@ -57,11 +61,23 @@ def recall(y_true, y_pred):
     """
     true_positives = K.sum(K.round(K.clip(y_true * y_pred, 0, 1)))
     possible_positives = K.sum(K.round(K.clip(y_true, 0, 1)))
-    recall = true_positives / (possible_positives + K.epsilon())
-    return recall
+    return true_positives / (possible_positives + K.epsilon())
 
 
 def overall_accuracy(y_true, y_pred):
+    """Calculates the accuracy value which describes the ratio between
+    the true positives and negatives and the sum of all predicted values
+    (e. g. true positive/negative and false positive/negative).
+
+    Args:
+        y_true (np.ndarray): The ground truth value (e. g. the image mask)
+        y_pred (np.ndarray): The predicted value (e. g. the image mask)
+
+    Returns:
+        float: A number between 0 and 1 where 1 indicates a perfect match
+            between `y_true` and `y_pred` and 0 indicates a complete wrong
+            prediction.
+    """
     true_positives = K.sum(K.round(K.clip(y_true * y_pred, 0, 1)))
     false_positives = K.sum(K.round(K.clip((y_true * -1 + 1) * y_pred, 0, 1)))
     true_negatives = K.sum(K.round(K.clip((y_true * -1 + 1) * (y_pred * -1 + 1), 0, 1)))
