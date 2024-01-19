@@ -28,7 +28,7 @@ MAX_NUM_EPOCHS = 50
 L2_VALUE = 0.01
 MEM_LIMIT_GPU = int(7.5 * 1024)
 
-MODEL_PATH = '../model'
+MODEL_PATH = '../models'
 
 TRAINING_DATASET_PATH = '../train'
 VALIDATION_DATASET_PATH = '../validation'
@@ -119,6 +119,7 @@ def get_model_name():
     while True:
         if os.path.exists(os.path.join(MODEL_PATH, f'model_{model_idx}')):
             model_idx += 1
+            continue
         break
 
     os.mkdir(os.path.join(MODEL_PATH, f'model_{model_idx}'))
