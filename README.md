@@ -1,17 +1,19 @@
 # spacesec24_robustness
 
-This GitHub repository describes the artifacts of the paper *"Machine Learning in Space: Towards Assessing the Robustness of on-board ML models to Radiation"*.
+Dear Reviewers,
+
+this GitHub repository describes the artifacts of the paper *"Machine Learning in Space: Towards Assessing the Robustness of on-board ML models to Radiation"*. You will get an overview about all created plots and figures and have access to the code used for executing the experiments reported in our paper. In addition, we state which data was used for training and validation the models but also for the experiments itself.
 
 # Structure
 
 The project consists of several folders:
 
-- **UNet**: Here the main implementation of the UNet itself, but also the script for training a network can be found.
-- **train**: In this folder, all training data used by the UNet is located and devided into input and gt. Input corresponds to the image which will be given as input into the neural network whereas gt the ground truth of the image is.
-- **validation**: Similar like the training folder but it contains only images and their ground truth for instances used as validation data.
+- `UNet`: Here the main implementation of the UNet itself, but also the script for training a network can be found.
+- `train`: In this folder, all training data used by the UNet is located and devided into input and gt. Input corresponds to the image which will be given as input into the neural network whereas gt the ground truth of the image is.
+- `validation`: Similar like the training folder but it contains only images and their ground truth for instances used as validation data.
 - **robustnesstest**: Here the images are given that were used for conducting the experiments described in the paper (and implemented in the `fault_injection.ipynb` notebook).
 - **models**: After the training is completed, the model and the log file of the model will be saved to this folder. From here, it can be loaded later on for executing the experiments.
-- **assets**: When running the cells within the notebook `fault_injection.ipynb`, the images and diagrams will be saved to this folder
+- **assets**: When running the cells within the notebook `fault_injection.ipynb`, the images and diagrams will be saved to this folder.
 - **experiment_results**: This folder contains all results from the experiments about image disturbances as csv files.
 - **results**: In this folder, the results of the bit-flip injection campaign can be found for each model.
 
@@ -53,3 +55,13 @@ python create_data.py \
 ```
 
 Please note that we published the used training and validation images in the folders `train` and `validation`. The arguments `train-images` and `validation-images` therefore will stay unchanged. For the paths to the 38-Cloud and 95-Cloud dataset, please use the foldername of the training folder, which is located within the root folder of the downloaded dataset.
+
+# Training the models
+
+You can start the training process by executing the script `train_models.sh` inside of the `UNet` folder. This script iterates three times and calles the script `main.py` which trains always a single model based on the given training and validation data. All models are then written to the folder `models` inside of the root directory of this repository. Please note that for each trained model a new folder is created. This folder increases its number always by one (starting from 1) until an available folder name was found. For starting the script, use the following commands:
+
+```bash
+cd UNet  # Enter the UNet folder (Necessary so that all paths fit)
+
+bash ./train_models.sh  # Start the training process of three models
+```
