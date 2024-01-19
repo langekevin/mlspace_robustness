@@ -65,3 +65,7 @@ cd UNet  # Enter the UNet folder (Necessary so that all paths fit)
 
 bash ./train_models.sh  # Start the training process of three models
 ```
+
+# Starting the experiments
+
+For starting the experiments, you can now open the notebook `fault_injection.ipynb` and execute the code in the different cells. This will first load the models and the data, assess the performance and then inject faults into the images. At the end, an injection campaign will be started that injects 19 800 faults into 50 images. This will result in 990 000 observations of how bit-flips will change the performance of neural networks.
