@@ -11,18 +11,18 @@ The project consists of several folders:
 - `UNet`: Here the main implementation of the UNet itself, but also the script for training a network can be found.
 - `train`: In this folder, all training data used by the UNet is located and devided into input and gt. Input corresponds to the image which will be given as input into the neural network whereas gt the ground truth of the image is.
 - `validation`: Similar like the training folder but it contains only images and their ground truth for instances used as validation data.
-- **robustnesstest**: Here the images are given that were used for conducting the experiments described in the paper (and implemented in the `fault_injection.ipynb` notebook).
-- **models**: After the training is completed, the model and the log file of the model will be saved to this folder. From here, it can be loaded later on for executing the experiments.
-- **assets**: When running the cells within the notebook `fault_injection.ipynb`, the images and diagrams will be saved to this folder.
-- **experiment_results**: This folder contains all results from the experiments about image disturbances as csv files.
-- **results**: In this folder, the results of the bit-flip injection campaign can be found for each model.
+- `robustnesstest`: Here the images are given that were used for conducting the experiments described in the paper (and implemented in the `fault_injection.ipynb` notebook).
+- `models`: After the training is completed, the model and the log file of the model will be saved to this folder. From here, it can be loaded later on for executing the experiments.
+- `assets`: When running the cells within the notebook `fault_injection.ipynb`, the images and diagrams will be saved to this folder.
+- `experiment_results`: This folder contains all results from the experiments about image disturbances as csv files.
+- `results`: In this folder, the results of the bit-flip injection campaign can be found for each model.
 
 In addition to the given folder structure, several scripts and files are also available in the root directory of this repository:
 
-- **requirements.txt**: This file specifies all requirements needed to start running the code in this project.
-- **fault_injection.ipynb**: The notebook used for implementing all the fault injection of image disturbances and bit-flips into the models of the neural network.
-- **fault_injection_results.ipynb**: This notebook takes the data from the bit-flip injection campaign and creates the diagrams for the influence of bit-flips used in the paper.
-- **create_data.py**: The script is used for the preprocessing of the downloaded data. It takes the images from the source directory, combines the individual channels into single images and moves them into the respective folders for training and testing.
+- `requirements.txt`: This file specifies all requirements needed to start running the code in this project.
+- `fault_injection.ipynb`: The notebook used for implementing all the fault injection of image disturbances and bit-flips into the models of the neural network.
+- `fault_injection_results.ipynb`: This notebook takes the data from the bit-flip injection campaign and creates the diagrams for the influence of bit-flips used in the paper.
+- `create_data.py`: The script is used for the preprocessing of the downloaded data. It takes the images from the source directory, combines the individual channels into single images and moves them into the respective folders for training and testing.
 
 # Setup
 
