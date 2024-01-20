@@ -8,7 +8,7 @@ this GitHub repository describes the artifacts of the paper *"Machine Learning i
 
 We show the whole process of installation, setup and how to use our code in a short demonstrative video.
 
-![Video](assets/demonstrative_video.mp4)
+![Video](assets/Demonstrative_Video_SpaceSec.mp4)
 
 # Structure
 
