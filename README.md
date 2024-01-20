@@ -8,7 +8,7 @@ this GitHub repository describes the artifacts of the paper *"Machine Learning i
 
 We show the whole process of installation, setup and how to use our code in a short demonstrative video.
 
-[You can access the video here](assets/demonstrative_video.mp4)
+![You can access the video here](https://vimeo.com/904736460?share=copy)
 
 # Structure
 
