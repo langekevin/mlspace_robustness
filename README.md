@@ -8,7 +8,7 @@ this GitHub repository describes the artifacts of the paper *"Machine Learning i
 
 We show the whole process of installation, setup and how to use our code in a short demonstrative video.
 
-![You can access the video here](https://player.vimeo.com/video/904736460?badge=0&autopause=0&player_id=0&app_id=58479)
+https://github.com/langekevin/spacesec24_robustness/assets/demonstrative_video_720p.mp4
 
 # Structure
 
