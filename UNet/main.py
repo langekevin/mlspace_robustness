@@ -18,7 +18,7 @@ from generator import get_batch
 
 INPUT_SHAPE = (192, 192)
 INPUT_CHANNELS = 4
-LEARNING_RATE = 1e-4
+LEARNING_RATE = 1e-5
 MIN_LEARNING_RATE = 1e-8
 DECAY_FACTOR = 0.7
 PATIENCE = 10
@@ -43,6 +43,9 @@ model_name: str = ""
 model_idx: int = 1
 
 
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '4'
+
+
 def train():
     """Creates the model and starts the training process
     """
@@ -62,7 +65,7 @@ def train():
 
     # Create all the callback functions
     model_checkpoint = ModelCheckpoint(
-        f'../model_{model_idx}/weights_model_{model_idx}.hdf5',
+        f'../models/model_{model_idx}/weights_model_{model_idx}.hdf5',
         monitor='val_loss',
         mode='min', 
         verbose=1,
@@ -78,7 +81,7 @@ def train():
         verbose=1
     )
 
-    csv_logger = CSVLogger(f'../model_{model_idx}/logs_model_{model_idx}.log')
+    csv_logger = CSVLogger(f'../models/model_{model_idx}/logs_model_{model_idx}.log')
 
     # Start the training of the model
     # It will automatically save the best model
@@ -115,6 +118,9 @@ def get_model_name():
     be the number of the trained model
     """
     global model_idx
+    
+    if not os.path.exists(MODEL_PATH):
+        os.mkdir(MODEL_PATH)
 
     while True:
         if os.path.exists(os.path.join(MODEL_PATH, f'model_{model_idx}')):
