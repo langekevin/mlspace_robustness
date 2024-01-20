@@ -27,8 +27,8 @@ def get_batch(dataset_path: str, file_list: List[str], size: Tuple[int, int], ba
     data = []
 
     for file in tqdm(file_list, desc="Loading Images", unit="file"):
-        image = imread(os.path.join(dataset_path, f'Combined/ImagesSmall/{file}.tif'))
-        mask = imread(os.path.join(dataset_path, f"Combined/MasksSmall/{file}.tif"))
+        image = imread(os.path.join(dataset_path, f'input/{file}.TIF'))
+        mask = imread(os.path.join(dataset_path, f"gt/{file}.TIF"))
 
         image = resize(image, size, preserve_range=True, mode='symmetric')
         mask = resize(mask, size, preserve_range=True, mode='symmetric')
