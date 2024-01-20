@@ -68,7 +68,7 @@ You can start the training process by executing the script `train_models.sh` ins
 
 ```bash
 cd UNet  # Enter the UNet folder (Necessary so that all paths fit)
-
+sudo chmod a+x ./train_models.sh  # Make the bash script executable
 bash ./train_models.sh  # Start the training process of three models
 ```
 
