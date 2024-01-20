@@ -4,6 +4,12 @@ Dear Reviewers,
 
 this GitHub repository describes the artifacts of the paper *"Machine Learning in Space: Towards Assessing the Robustness of on-board ML models to Radiation"*. You will get an overview about all created plots and figures and have access to the code used for executing the experiments reported in our paper. In addition, we state which data was used for training and validation the models but also for the experiments itself.
 
+# Demonstrative Video
+
+We show the whole process of installation, setup and how to use our code in a short demonstrative video.
+
+[![Video](assets/Thumbnail.png)](assets/demonstrative_video.mp4)
+
 # Structure
 
 The project consists of several folders:
