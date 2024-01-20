@@ -50,25 +50,25 @@ def get_images(path: str, target: str):
         image_names = [x.strip() for x in f.readlines()[1:]]
 
     for image_name in tqdm(image_names, desc="Loading images", unit="images"):
-        if os.path.exists(os.path.join(args.dataset_38cloud, f'train_red/red_{image_name}.tif')):
+        if os.path.exists(os.path.join(args.dataset_38cloud, f'train_red/red_{image_name}.TIF')):
             file_path = args.dataset_38cloud
-        elif os.path.exists(os.path.join(args.dataset_95cloud, f'train_red/red_{image_name}.tif')):
+        elif os.path.exists(os.path.join(args.dataset_95cloud, f'train_red/red_{image_name}.TIF')):
             file_path = args.dataset_95cloud
         else:
             print("Path invalid")
             return
 
-        img_red = io.imread(os.path.join(file_path, f'train_red/red_{image_name}.tif'))
-        img_green = io.imread(os.path.join(file_path, f'train_green/green_{image_name}.tif'))
-        img_blue = io.imread(os.path.join(file_path, f'train_blue/blue_{image_name}.tif'))
-        img_nir = io.imread(os.path.join(file_path, f'train_nir/nir_{image_name}.tif'))
+        img_red = io.imread(os.path.join(file_path, f'train_red/red_{image_name}.TIF'))
+        img_green = io.imread(os.path.join(file_path, f'train_green/green_{image_name}.TIF'))
+        img_blue = io.imread(os.path.join(file_path, f'train_blue/blue_{image_name}.TIF'))
+        img_nir = io.imread(os.path.join(file_path, f'train_nir/nir_{image_name}.TIF'))
 
         img = np.stack((img_red, img_green, img_blue, img_nir), axis=-1) / 65535 * 255
         img = img.astype(np.uint8)
-        io.imsave(os.path.join(target, f'input/{image_name}.tif'), img, check_contrast=False)
+        io.imsave(os.path.join(target, f'input/{image_name}.TIF'), img, check_contrast=False)
 
-        img_gt = io.imread(os.path.join(file_path, f'train_gt/gt_{image_name}.tif')).astype(np.uint8)
-        io.imsave(os.path.join(target, f'gt/{image_name}.tif'), img_gt, check_contrast=False)
+        img_gt = io.imread(os.path.join(file_path, f'train_gt/gt_{image_name}.TIF')).astype(np.uint8)
+        io.imsave(os.path.join(target, f'gt/{image_name}.TIF'), img_gt, check_contrast=False)
 
 
 def check_if_folder_exists() -> bool:
@@ -96,6 +96,18 @@ def check_if_folder_exists() -> bool:
                     break
             else:
                 return False
+    
+    # Check if the target folders exist (e. g. input and gt)
+    if not os.path.exists('train/input'):
+        os.mkdir('train/input')
+    if not os.path.exists('train/gt'):
+        os.mkdir('train/gt')
+    
+    if not os.path.exists('validation/input'):
+        os.mkdir('validation/input')
+    if not os.path.exists('validation/gt'):
+        os.mkdir('validation/gt')
+
     return True
 
 
