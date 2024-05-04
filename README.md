@@ -2,6 +2,17 @@
 
 This GitHub repository describes the artifacts of the paper *"Machine Learning in Space: Surveying the Robustness of on-board ML models to Radiation"* accepted to the IEEE Space Computing Conference 2024 ([SMC-IT/SCC](https://smcit-scc.space)). You will get an overview about all created plots and figures and have access to the code used for executing the experiments reported in our paper. In addition, we state which data was used for training and validation the models but also for the experiments itself.
 
+If you use any of our resources, you are kindly invited to cite our paper:
+
+```
+@inproceedings{lange2024machine,
+  title={{Machine Learning in Space: Surveying the Robustness of on-board ML models to Radiation}},
+  author={Lange, Kevin and Fontana, Federico and Rossi, Francesco and Varile, Mattia and Apruzzese, Giovanni},
+  booktitle={IEEE Space Computing Conference (SCC)},
+  year={2024}
+}
+```
+
 # Demonstrative Video
 
 We show the whole process of installation, setup and how to use our code in a short demonstrative video.
