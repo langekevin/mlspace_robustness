@@ -1,8 +1,6 @@
-# mlspace_robustness
+# Machine Learning in Space
 
-Dear Reviewers,
-
-this GitHub repository describes the artifacts of the paper *"Machine Learning in Space: Towards Assessing the Robustness of on-board ML models to Radiation"*. You will get an overview about all created plots and figures and have access to the code used for executing the experiments reported in our paper. In addition, we state which data was used for training and validation the models but also for the experiments itself.
+This GitHub repository describes the artifacts of the paper *"Machine Learning in Space: Surveying the Robustness of on-board ML models to Radiation"* accepted to the IEEE Space Computing Conference 2024 ([SMC-IT/SCC](https://smcit-scc.space)). You will get an overview about all created plots and figures and have access to the code used for executing the experiments reported in our paper. In addition, we state which data was used for training and validation the models but also for the experiments itself.
 
 # Demonstrative Video
 
