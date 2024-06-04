@@ -11,4 +11,4 @@ scikit-learn==1.3.2
 tensorflow[and-cuda]==2.14.0
 tf2onnx==1.16.0
 onnx==1.14.1
-tqdm==4.66.1
+tqdm==4.66.3
