@@ -3,7 +3,7 @@ ipython==8.19.0
 jupyter==1.0.0
 keras==2.14.0
 matplotlib==3.8.2
-notebook==7.0.6
+notebook==7.0.7
 numpy==1.26.3
 pandas==2.1.4
 scikit-image==0.22.0
